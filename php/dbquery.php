@@ -176,8 +176,12 @@ include_once($_SESSION['IPT_VARS_DIR']."email.php");
 
     function GetValue($pField,$pRow,$pDataType=0) {
 
-                              
-      $data = mysql_result ($this->cRecordset, $pRow ,$pField);
+	if($this->cRecordset) {                            
+
+	      $data = mysql_result ($this->cRecordset, $pRow ,$pField);
+	} else {
+$data="";
+	}
         //  print "dd".$this->cRecordset;
       switch($pDataType) {
 
