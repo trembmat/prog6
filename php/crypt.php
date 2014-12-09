@@ -1,6 +1,7 @@
 <?
-//Created by Mathieu Tremblay
-//
+
+
+
 
 class iptCrypt {
 
