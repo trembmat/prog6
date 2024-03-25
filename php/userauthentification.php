@@ -1,15 +1,15 @@
-<?
+<?php
 /*
 Source: ipt/login.php
-Créer le: 2013-06-21
+Crï¿½er le: 2013-06-21
 Par: Mathieu Tremblay
 
-Tous droits réservés. 
+Tous droits rï¿½servï¿½s. 
 
 
 
 
-Exemple d'utilisation (structure de base de données IPT par défaut):
+Exemple d'utilisation (structure de base de donnï¿½es IPT par dï¿½faut):
 
 $x = new iptUserAuthentification($my_db);
 $x->Login($_POST['user'],$_POST['pass']);
@@ -18,7 +18,7 @@ $x->Login($_POST['user'],$_POST['pass']);
 
 
 
-Exemple d'utilisation (structure de base de données personnalisée):
+Exemple d'utilisation (structure de base de donnï¿½es personnalisï¿½e):
 
 
 

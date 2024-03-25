@@ -1,4 +1,4 @@
-<?
+<?php
 
 class iptDBUpdate {
     var $cTable;

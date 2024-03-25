@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 class iptEmail {
@@ -33,7 +33,7 @@ function encode_iso88591($string){
 	    $this->header .= "Content-Transfer-Encoding: 8bit\n\n";
 	    $this->header .= $message."\n\n";
 	    
-      //\nAdresse IP de l'expéditeur".$_SERVER["REMOTE_ADDR"]."\nURL d'origine:".$_SERVER['REQUEST_URI']."\n\n";   
+      //\nAdresse IP de l'expï¿½diteur".$_SERVER["REMOTE_ADDR"]."\nURL d'origine:".$_SERVER['REQUEST_URI']."\n\n";   
 	    $this->header .= "--".$this->uid."";
 
 	}
@@ -64,7 +64,7 @@ function encode_iso88591($string){
 
 	function Send($to,$title) {
 	    $this->header .= "--";
-		//$title = str_replace('é','=E9', $title);
+		//$title = str_replace('ï¿½','=E9', $title);
     		$i = mail($to, $this->encode_iso88591($title), "", $this->header,"-f ".$this->from);
     		return $i;
     		print "done".$i;

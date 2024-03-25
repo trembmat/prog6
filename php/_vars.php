@@ -1,31 +1,31 @@
-<?
+<?php
 /*
 Source: ipt/_vars.php
-Créer le: 2013-06-21
+Crï¿½er le: 2013-06-21
 Par: Mathieu Tremblay
 
-Tous droits réservés. 
+Tous droits rï¿½servï¿½s. 
 
 
 Description
 ------------------------------------------------------
-Liste des constantes qui servent à simplifier la
-conversion des types de champs entre la création de  
-formulaires HTML, les pré-traitement via PHP 
-et leur enregistrement dans la base de données
+Liste des constantes qui servent ï¿½ simplifier la
+conversion des types de champs entre la crï¿½ation de  
+formulaires HTML, les prï¿½-traitement via PHP 
+et leur enregistrement dans la base de donnï¿½es
 
-Notes supplémentaires
+Notes supplï¿½mentaires
 ------------------------------------------------------
-Une version .js de ce fichier devrait être réalisée
+Une version .js de ce fichier devrait ï¿½tre rï¿½alisï¿½e
 
 
 Historique des modifications
 ------------------------------------------------------
 1.0.1   2013-06-26  Ajout de IPT_DB_TYPE_*
-1.0.0   2013-06-21  Création du fichier
+1.0.0   2013-06-21  Crï¿½ation du fichier
 
  
-     Voir le tableau de référence ci-dessous
+     Voir le tableau de rï¿½fï¿½rence ci-dessous
 '-----------------------------------------------------. 
 |                                                      `.
 |                                                        `.

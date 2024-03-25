@@ -1,4 +1,4 @@
-<?
+<?php
 
 class iptPDF_Form {
 

@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 
@@ -19,7 +19,7 @@ class iptCrypt {
   }
 
   function Encrypt($data) {
-      $key = $this->ipt_cript_key;  // Clé de 8 caractères max
+      $key = $this->ipt_cript_key;  // Clï¿½ de 8 caractï¿½res max
       $data = serialize($data);
       $td = mcrypt_module_open(MCRYPT_DES,"",MCRYPT_MODE_ECB,"");
       $iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);

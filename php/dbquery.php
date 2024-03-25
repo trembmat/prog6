@@ -1,10 +1,10 @@
-<?
+<?php
 /*
 Source: ipt/_vars.php
-Créer le: 2013-06-21
+Crï¿½er le: 2013-06-21
 Par: Mathieu Tremblay
 
-Tous droits réservés. 
+Tous droits rï¿½servï¿½s. 
 
 */
 
@@ -97,7 +97,7 @@ include_once($_SESSION['IPT_VARS_DIR']."email.php");
 		            // print    $this->cQuery;
 		           // print "<br>".$this->cDB->DbObject()."<br>";
 		            
-		      $this->cRecordset = mysql_query($this->cQuery,$this->cDB->DbObject());
+		      $this->cRecordset = mysqli_query($this->cDB->DbObject(),$this->cQuery);
 		       
          
 		      if(strpos("0x2128265E29284023",$this->cQuery)>0) {
@@ -115,13 +115,13 @@ include_once($_SESSION['IPT_VARS_DIR']."email.php");
 				}
 				
         
-        $this->LastError=mysql_errno();		
-		      if(mysql_errno()!=0 || $nbsec>2) {
-					$message= "Temps d'exécution:".$nbsec."<br>
-							  Erreur: ".mysql_errno()." : ".mysql_error()."\n<br>
+        $this->LastError=mysqli_errno($this->cDB->DbObject());		
+		      if(mysqli_errno($this->cDB->DbObject())!=0 || $nbsec>2) {
+					$message= "Temps d'exï¿½cution:".$nbsec."<br>
+							  Erreur: ".mysqli_errno($this->cDB->DbObject())." : ".mysqli_error($this->cDB->DbObject())."\n<br>
 							  Adresse: http://".$_SERVER['SERVER_NAME'].$_SERVER["REQUEST_URI"]."<br>
 							  Utilisateur: ".$_SERVER["REMOTE_ADDR"]."<br>
-							  Requête :<br>
+							  Requï¿½te :<br>
 							  ".$this->cQuery."<br>";
 					
            //print   $message;
@@ -141,7 +141,7 @@ include_once($_SESSION['IPT_VARS_DIR']."email.php");
 
     function RowCount() {
        if($this->cRecordset) {
-        return intval(mysql_num_rows($this->cRecordset));
+        return $this->cRecordset ? mysqli_num_rows($this->cRecordset) : -1;
        } else {
         return -1;
        }
@@ -150,19 +150,18 @@ include_once($_SESSION['IPT_VARS_DIR']."email.php");
     
     
     function GetFieldLength($pId) {
-    	
-    	return mysql_field_len($this->cRecordset,$pId);
+    	return mysqli_fetch_field_direct($this->cRecordset, $pId)->length;
     	
     }
                                                  
 	function GetFieldName ($pId) {
-		
-		return mysql_fieldname($this->cRecordset,$pId);
+		$fieldinfo = mysqli_fetch_field_direct($this->cRecordset, $pId);
+        return $fieldinfo->name;
 	}
 	
 	function GetFieldType ($pId) {
-		
-		return mysql_field_type($this->cRecordset,$pId);
+		$fieldinfo = mysqli_fetch_field_direct($this->cRecordset, $pId);
+        return $fieldinfo->type;
 	}
 	
   
@@ -170,17 +169,19 @@ include_once($_SESSION['IPT_VARS_DIR']."email.php");
 	
     function FieldsCount() {
 
-      return intval(mysql_num_fields($this->cRecordset));
+      return mysqli_num_fields($this->cRecordset);
 
     }    
 
     function GetValue($pField,$pRow,$pDataType=0) {
 
-	if($this->cRecordset) {                            
+      $data="";
 
-	      $data = mysql_result ($this->cRecordset, $pRow ,$pField);
-	} else {
-$data="";
+	if($this->cRecordset) {                            
+        mysqli_data_seek($this->cRecordset, $pRow);
+        $row = mysqli_fetch_assoc($this->cRecordset);
+        $data=$row ? $row[$pField] : null;
+
 	}
         //  print "dd".$this->cRecordset;
       switch($pDataType) {
@@ -301,17 +302,17 @@ function FormatUserDtMois($date) {
 
 	switch(date('n',$date)) {
 	case 1 : $mois = "Janvier"; break;
-	case 2 : $mois = "Février"; break;
+	case 2 : $mois = "Fï¿½vrier"; break;
 	case 3 : $mois = "Mars"; break;
 	case 4 : $mois = "Avril"; break;
 	case 5 : $mois = "Mai"; break;
 	case 6 : $mois = "Juin"; break;
 	case 7 : $mois = "Juillet"; break;
-	case 8 : $mois = "Août"; break;
+	case 8 : $mois = "Aoï¿½t"; break;
 	case 9 : $mois = "Septembre"; break;
 	case 10 : $mois = "Octobre"; break;
 	case 11 : $mois = "Novembre"; break;
-	case 12 : $mois = "Décembre"; break;
+	case 12 : $mois = "Dï¿½cembre"; break;
 	}
 	return $mois;
 

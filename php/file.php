@@ -1,67 +1,36 @@
-<?
+<?php
 /*
 Source: ipt/file.php
-Créer le: 2014-036-01
-Par: Mathieu Tremblay
+Created: 2014-03-01
+By: Mathieu Tremblay
 
-Tous droits réservés.
-
+All rights reserved.
 */
-
-
-
 
 class iptFile {
 
-    var $iptBaseDir;
+    private $iptBaseDir;
 
-    function iptFile($pBaseDir="") {
-
-		if($pBaseDir=="") {
-			$this->iptBaseDir=getcwd()."/";
-		} else {
-                        $this->iptBaseDir=$pBaseDir;
-		}
-
+    public function __construct($pBaseDir = "") {
+        $this->iptBaseDir = $pBaseDir === "" ? getcwd() . "/" : $pBaseDir;
     }
 
-    function IncludeFilesInDir($pDir="",$pFileExt=".php",$pExlusions=null) {
+    public function IncludeFilesInDir($pDir = "", $pFileExt = ".php", $pExclusions = null) {
+        $pDir = $pDir === "" ? $this->iptBaseDir : $pDir;
 
-		if($pDir=="") {
-			$pDir = $this->iptBaseDir;
-		}
+        if (($handle = opendir($pDir)) === false) {
+            throw new Exception("Unable to open directory: " . $pDir);
+        }
 
-		if ($handle = opendir($pDir)) {
-		    while (false !== ($entry = readdir($handle))) {
-
-		        if ($entry != "." && $entry != ".."  && substr($entry,strlen($entry)-strlen($pFileExt),strlen($pFileExt))==$pFileExt) {
-
-                            $bOk = true;
-			    foreach($pExlusions as  $item) {
-				if($entry== $item) {
-					$bOk = false;
-				}
-			    }
-			    if($bOk) {
-			            include_once($pDir.$entry);
-			    }
-		        }
-		    }
-		    closedir($handle);
-		}
-
-
-
-
+        while (false !== ($entry = readdir($handle))) {
+            if ($entry != "." && $entry != ".." && substr($entry, -strlen($pFileExt)) == $pFileExt) {
+                if ($pExclusions === null || !in_array($entry, $pExclusions)) {
+                    include_once($pDir . $entry);
+                }
+            }
+        }
+        closedir($handle);
     }
-
-
-
-
-
-
-
 }
-
 
 ?>

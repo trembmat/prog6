@@ -1,9 +1,9 @@
-<?
+<?php
 
 class iptImageSize {
 /* 
 ipt_imagesize.php
-La plupart des fonctions contenues dans ce module demande la librairie gd.so installée sur le serveur
+La plupart des fonctions contenues dans ce module demande la librairie gd.so installï¿½e sur le serveur
 */
 var $ipt_is_debug = false;
 
@@ -15,8 +15,8 @@ function IPT_IS_ResizePicture($source_picture, $destination_picture, $max_width,
 	
 	
 	//print $im." is ".$source_picture."<br>";
-	// Trouve le bon ratio de réduction pour que l'image soit redimensionnée en gardant ses proportions.
-	//On arrondi au dixième près.
+	// Trouve le bon ratio de rï¿½duction pour que l'image soit redimensionnï¿½e en gardant ses proportions.
+	//On arrondi au dixiï¿½me prï¿½s.
 	$size = getimagesize ($source_picture);
 	$im_height = $size[1];
 	$im_width = $size[0];		
@@ -34,7 +34,7 @@ function IPT_IS_ResizePicture($source_picture, $destination_picture, $max_width,
 	 $Wfactor =intval(($im_width-($crop*2))/$ratio);
 	 $Hfactor= intval(($im_height-($crop*2))/$ratio);
   } 
-	//Création de la nouvelle image, on arrondi les dimensions au pixel près
+	//Crï¿½ation de la nouvelle image, on arrondi les dimensions au pixel prï¿½s
 	$im_final=@imagecreatetruecolor (intval($im_width/$ratio)+$Wfactor,intval($im_height/$ratio)+$Hfactor);
 	
 	if($ipt_is_debug) { print "{IPT_IS_DEBUG:IPT_IS_ResizePicture} - New width is ".intval($im_width/$ratio)." pixels<br>"; }
@@ -89,7 +89,7 @@ function IPT_IS_ResizePicture($source_picture, $destination_picture, $max_width,
 	
 	if($ipt_is_debug) { print "{IPT_IS_DEBUG:IPT_IS_ResizePicture} - Picture should have been written in ".$destination_picture."<br>"; }
 	
-	//Supression des images en mémoire
+	//Supression des images en mï¿½moire
 	ImageDestroy($im);
 	ImageDestroy($im_final);		
 
@@ -137,8 +137,8 @@ function IPT_IS_ResizePicture2($source_picture, $destination_picture, $max_width
 	//Ouverture du fichier image source
 	$im = imagecreatefromjpeg("images_temp/".$source_picture);				
 	
-	// Trouve le bon ratio de réduction pour que l'image soit redimensionnée en gardant ses proportions.
-	//On arrondi au dixième près.
+	// Trouve le bon ratio de rï¿½duction pour que l'image soit redimensionnï¿½e en gardant ses proportions.
+	//On arrondi au dixiï¿½me prï¿½s.
 	$size = getimagesize ("images_temp/".$source_picture);
 	$im_height = $size[1];
 	$im_width = $size[0];		
@@ -150,7 +150,7 @@ function IPT_IS_ResizePicture2($source_picture, $destination_picture, $max_width
 	
 	if($ipt_is_debug) { print "{IPT_IS_DEBUG:IPT_IS_ResizePicture} - Ratio is ".$ratio."<br>"; }
 	
-	//Création de la nouvelle image, on arrondi les dimensions au pixel près
+	//Crï¿½ation de la nouvelle image, on arrondi les dimensions au pixel prï¿½s
 	$im_final=@imagecreatetruecolor (intval($im_width/$ratio),intval($im_height/$ratio));
 	
 	if($ipt_is_debug) { print "{IPT_IS_DEBUG:IPT_IS_ResizePicture} - New width is ".intval($im_width/$ratio)." pixels<br>"; }
@@ -163,7 +163,7 @@ function IPT_IS_ResizePicture2($source_picture, $destination_picture, $max_width
 	
 	if($ipt_is_debug) { print "{IPT_IS_DEBUG:IPT_IS_ResizePicture} - Picture should have been written in ".$destination_picture."<br>"; }
 	
-	//Supression des images en mémoire
+	//Supression des images en mï¿½moire
 	ImageDestroy($im);
 	ImageDestroy($im_final);		
 	return "../images_temp/".$source_picture;
@@ -183,14 +183,14 @@ function IPT_IS_CropPicture($source_picture, $destination_picture, $left, $top,$
 	
 	
 	//print $im." is ".$source_picture."<br>";
-	// Trouve le bon ratio de réduction pour que l'image soit redimensionnée en gardant ses proportions.
-	//On arrondi au dixième près.
+	// Trouve le bon ratio de rï¿½duction pour que l'image soit redimensionnï¿½e en gardant ses proportions.
+	//On arrondi au dixiï¿½me prï¿½s.
 	$size = getimagesize ($source_picture);
 	$im_height = $size[1];
 	$im_width = $size[0];		
 	$ratio = 1;
 	
-	//Création de la nouvelle image, on arrondi les dimensions au pixel près
+	//Crï¿½ation de la nouvelle image, on arrondi les dimensions au pixel prï¿½s
 	$im_final=@imagecreatetruecolor (intval($im_width/$ratio)-$width,intval($im_height/$ratio)-$height);
 	
 	if($ipt_is_debug) { print "{IPT_IS_DEBUG:IPT_IS_ResizePicture} - New width is ".intval($im_width/$ratio)." pixels<br>"; }
@@ -203,7 +203,7 @@ function IPT_IS_CropPicture($source_picture, $destination_picture, $left, $top,$
 	
 	if($ipt_is_debug) { print "{IPT_IS_DEBUG:IPT_IS_ResizePicture} - Picture should have been written in ".$destination_picture."<br>"; }
 	
-	//Supression des images en mémoire
+	//Supression des images en mï¿½moire
 	ImageDestroy($im);
 	ImageDestroy($im_final);		
 

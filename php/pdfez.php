@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 class iptEzPDF extends iptPDF {

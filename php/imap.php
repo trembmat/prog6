@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 Source: ipt/imap.php
 Créer le: 2014-03-20

@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 include_once($_SESSION['IPT_VARS_DIR']."_vars.php");
@@ -6,15 +6,15 @@ include_once($_SESSION['IPT_VARS_DIR']."_vars.php");
 
 /*
 Source: ipt/widget.php
-Créer le: 2013-06-27
+Crï¿½er le: 2013-06-27
 Par: Mathieu Tremblay
 
-Tous droits réservés. 
+Tous droits rï¿½servï¿½s. 
 
 
 
 
-Exemple d'utilisation (structure de base de données IPT par défaut):
+Exemple d'utilisation (structure de base de donnï¿½es IPT par dï¿½faut):
 
 
 

@@ -1,19 +1,19 @@
-<?
+<?php
 
 include_once($_SESSION['IPT_VARS_DIR']."_vars.php");
 include_once($_SESSION['IPT_VARS_DIR']."dbfield.php");
 
 /*
 Source: ipt/dbtable.php
-Créer le: 2013-06-26
+Crï¿½er le: 2013-06-26
 Par: Mathieu Tremblay
 
-Tous droits réservés. 
+Tous droits rï¿½servï¿½s. 
 
 
 
 
-Exemple d'utilisation (structure de base de données IPT par défaut):
+Exemple d'utilisation (structure de base de donnï¿½es IPT par dï¿½faut):
 
 
 
@@ -93,22 +93,22 @@ class iptDbTable {
 
         if( $this->ipt_DBT_name=="") {
             
-               //Le lien vers la base de données n'est pas actif
+               //Le lien vers la base de donnï¿½es n'est pas actif
              
-               print "#1300004 Erreur.... le nom de la table n'a pas été spécifié!";
+               print "#1300004 Erreur.... le nom de la table n'a pas ï¿½tï¿½ spï¿½cifiï¿½!";
              
             
             
           } elseif(!$this->ipt_DBT_dblink) {
           
-              //Le lien vers la base de données n'est pas actif
-              print "#1300003  Erreur.... le lien vers la base de données est inactif!";
+              //Le lien vers la base de donnï¿½es n'est pas actif
+              print "#1300003  Erreur.... le lien vers la base de donnï¿½es est inactif!";
               
           }  else {
           
           
           
-              //On créer la db                                                               
+              //On crï¿½er la db                                                               
               if($this->ipt_DBT_dblink->ipt_DBF_type==IPT_DB_TYPE_MYSQL)  {
               
                   if( !$this->ipt_DBT_dblink->Connect()) {
@@ -135,7 +135,7 @@ class iptDbTable {
                            
                       
                       if (mysql_query($tmp_query,$this->ipt_DBT_dblink->DbObject())) {      
-                        //echo "La table été créer avec succès";
+                        //echo "La table ï¿½tï¿½ crï¿½er avec succï¿½s";
                       } else {
                         if(mysql_errno($this->ipt_DBT_dblink->DbObject())==1050)  {
                           //La table existe deja, il faut verifier les champs un par un
@@ -148,7 +148,7 @@ class iptDbTable {
                           
                           
                         } else {
-                          echo "#1300001  Une erreur est survenue lors de la création de la table... " . mysql_error($this->ipt_DBT_dblink->DbObject())."<br>".$tmp_query;
+                          echo "#1300001  Une erreur est survenue lors de la crï¿½ation de la table... " . mysql_error($this->ipt_DBT_dblink->DbObject())."<br>".$tmp_query;
                         }
                         
                         
@@ -156,12 +156,12 @@ class iptDbTable {
                  
                    
                    
-                    // die ('Impossible de sélectionner la base de données : ' . mysql_error());
+                    // die ('Impossible de sï¿½lectionner la base de donnï¿½es : ' . mysql_error());
                   } else {
-                  //  print "La base de données existe déja...";
+                  //  print "La base de donnï¿½es existe dï¿½ja...";
                   }
                } else {
-                print "#1300002  Désolé, ce format de base de données n'est pas supporté...";
+                print "#1300002  Dï¿½solï¿½, ce format de base de donnï¿½es n'est pas supportï¿½...";
                
                }   
                   

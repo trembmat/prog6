@@ -1,10 +1,10 @@
-<?
+<?php
 /*
 Source: ipt/index.php
-Créer le: 2013-06-26
+Crï¿½er le: 2013-06-26
 Par: Mathieu Tremblay
 
-Tous droits réservés. 
+Tous droits rï¿½servï¿½s. 
 
 */
 include('tmp/version.php');
@@ -25,7 +25,7 @@ Your are currently using version <? print $_SESSION['IPT_VERSION']; ?> of I+ Too
 
                         
 <ul>
-  <li><a href="docs/">À propos de I+ Toolkit</a></li>
+  <li><a href="docs/">ï¿½ propos de I+ Toolkit</a></li>
 
 <li><a href="../">Site principal</a></li>
   

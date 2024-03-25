@@ -1,4 +1,4 @@
-<?
+<?php
 //10-04-2014 Now we keep the recorset  
 define("HTS_PARAM_NAME",                   2001);
  

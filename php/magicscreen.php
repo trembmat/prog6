@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 define("IMS_FIELD_TYPE_DEFAULT",     0);
